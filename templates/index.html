@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <form>
+         <input type="button" value="Go back!" onclick="history.back()">
+      </form>
+      <ul>
+         {% for item in value %}
+         <li><a href="#" id="{{ item }}" 
+            value="{{ item }}">{{ item }}</a></li>
+         {% endfor %}
+      </ul>
+   </body>
+   <script>
+      const Post = (e) => {
+         e.preventDefault()
+
+         if(event.target.tagName !== "A"){
+            return;
+         };
+         const form = document.createElement("form");
+         form.method = "POST";
+         form.action = "http://localhost:5000/data";
+         
+         const input = document.createElement("input");
+         input.type = "hidden";
+         input.name = "name";
+         input.value = event.target.id;
+
+         form.appendChild(input);
+         document.body.appendChild(form);
+         form.submit();    
+      }
+
+      document.addEventListener("click", Post);
+   </script>
+</html>
