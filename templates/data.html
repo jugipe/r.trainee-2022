@@ -9,7 +9,13 @@
    <body>
       <div class="buttons">
          <form>
-         <input type="button" value="Return to parent" onclick="history.back()">
+            <input type="button" value="Go back" onclick="history.back()">
+         </form>
+         <form>
+            <input type="button" value="Return to depency list" onclick="parent.location='http://localhost:5000/index'">
+         </form>
+         <form>
+            <input type="button" value="Upload another file" onclick="parent.location='http://localhost:5000'">
          </form>
       </div>
        <div>
@@ -17,16 +23,20 @@
          <p id="desc">{{desc}}</p>
       </div>
       <div>
-         <h2>Depencies</h2>
+         {% if ins_dep | length or not_ins_dep | length > 0 %}
+         <h2>This package is dependant on:</h2>
+         {% endif %}
          <ul>
             {% for dep in ins_dep %}
             <li><a href="#" id="{{dep}}" value="{{dep}}">{{dep}}</a></li>
             {% endfor %}
-               {% for dep in not_ins_dep %}
-               <li>{{dep}}</li>
-               {% endfor %}
+            {% for dep in not_ins_dep %}
+            <li>{{dep}}</li>
+            {% endfor %}
          </ul>
-         <h2>Reverse depencies</h2>
+         {% if ins_rev_dep | length > 0 or not_ins_rev_dep | length > 0 %}
+         <h2>These packages are dependant on {{name}}:</h2>
+         {% endif %}
          <ul>
                {% for dep in ins_rev_dep %}
                <li><a href="#" id="{{dep}}" value="{{dep}}">{{dep}}</a></li>
