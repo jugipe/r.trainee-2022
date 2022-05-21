@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="background-color: #3A4A4D">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poetry.lock visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
    <body>
-        <form>
-        <input type="button" value="Go back!" onclick="history.back()">
-       </form>
-       <h1>Package</h1>
-       <p>Name: {{name}}</p>
-       <p>Desc: {{desc}}</p>
-       <br>
-       <h2>Depencies</h2>
-       <ul>
-           {% for dep in ins_dep %}
-           <li><a href="#" id="{{dep}}" value="{{dep}}">{{dep}}</a></li>
-           {% endfor %}
-            {% for dep in not_ins_dep %}
-            <li>{{dep}}</li>
-            {% endfor %}
-        </ul>
-        <h2>Reverse depencies</h2>
-        <ul>
-            {% for dep in ins_rev_dep %}
+      <div class="buttons">
+         <form>
+         <input type="button" value="Return to parent" onclick="history.back()">
+         </form>
+      </div>
+       <div>
+         <h1 class="top">{{name}}</h1>
+         <p id="desc">{{desc}}</p>
+      </div>
+      <div>
+         <h2>Depencies</h2>
+         <ul>
+            {% for dep in ins_dep %}
             <li><a href="#" id="{{dep}}" value="{{dep}}">{{dep}}</a></li>
             {% endfor %}
-             {% for dep in not_ins_rev_dep %}
-             <li>{{dep}}</li>
-             {% endfor %}
+               {% for dep in not_ins_dep %}
+               <li>{{dep}}</li>
+               {% endfor %}
          </ul>
+         <h2>Reverse depencies</h2>
+         <ul>
+               {% for dep in ins_rev_dep %}
+               <li><a href="#" id="{{dep}}" value="{{dep}}">{{dep}}</a></li>
+               {% endfor %}
+               {% for dep in not_ins_rev_dep %}
+               <li>{{dep}}</li>
+               {% endfor %}
+            </ul>
+      </div>
    </body>
    <script>
     const Post = (e) => {

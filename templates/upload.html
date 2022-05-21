@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="background-color: #3A4A4D">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poetry.lock visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
    <body>
-      <form action = "http://localhost:5000/index" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" accept=".lock" required="true"/>
-         <input type = "submit"/>
-      </form>   
+      <div>
+         <h1 class="top">Depency visualizer for poetry</h1>
+         <p>Please enter a poetry.lock file of a project to visualize</p>
+         <form action = "http://localhost:5000/index" method = "POST" 
+            enctype = "multipart/form-data">
+            <input type = "file" name = "file" accept=".lock" required="true"/>
+            <input type = "submit"/>
+
+            {% if error is defined %}
+            <p id="error">{{error}}</p>
+            {% endif %}
+         </form>
+      </div>
    </body>
 </html>

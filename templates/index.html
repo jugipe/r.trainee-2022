@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="background-color: #3A4A4D">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poetry.lock visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
    <body>
-      <form>
-         <input type="button" value="Go back!" onclick="history.back()">
-      </form>
-      <ul>
-         {% for item in value %}
-         <li><a href="#" id="{{ item }}" 
-            value="{{ item }}">{{ item }}</a></li>
-         {% endfor %}
-      </ul>
+      <div class="buttons">
+         <form>
+         <input type="button" value="Return to parent" onclick="history.back()">
+         </form>
+      </div>
+      <div>
+         <h1 class="top">Depencies of given project</h1>
+         <ul>
+            {% for item in value %}
+            <li><a href="#" id="{{ item }}" 
+               value="{{ item }}">{{ item }}</a></li>
+            {% endfor %}
+         </ul>
+   </div>
    </body>
    <script>
       const Post = (e) => {
