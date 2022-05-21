@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
 from TOML_Parser import TOML_Parser
@@ -20,8 +19,12 @@ def after_file_upload():
             secure_filename(file.filename))
 
         os.remove(secure_filename(file.filename))
+
+        if after_file_upload.parsed_TOML.get_data() == None:
+            return render_template("upload.html", error="Please upload a .lock file")
+
         return render_template("index.html", 
-        value=after_file_upload.parsed_TOML.get_data())
+            value=after_file_upload.parsed_TOML.get_data())
 
     elif request.method == "GET":
         return render_template("upload.html")
@@ -64,3 +67,4 @@ def depency_clicked():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    

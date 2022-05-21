@@ -57,7 +57,7 @@ class TOML_Parser:
         file = open(filename, "r")
 
         if not self.is_toml(file):
-            return "Not a .lock file"
+            return 
 
         to_return = self.get_installed_packages(file)
 
@@ -94,7 +94,7 @@ class TOML_Parser:
 
             elif package:
                 if "name" in text:
-                    name = text.split('"')[1]
+                    name = text.split('"')[1].lower()
                     if to_return.get(name) == None:
                         p = Package(name)
                         p.set_installed()
@@ -133,7 +133,7 @@ class TOML_Parser:
 
             elif package:
                 if "name" in text:
-                    name_to_store = text.split('"')[1]
+                    name_to_store = text.split('"')[1].lower()
 
             elif depencies:
                 splitted = text.split("=", 1)
@@ -141,12 +141,12 @@ class TOML_Parser:
                 
                 if(splitted[0].strip() == "dev"):
                     for entry in splitted[1].split(','):
-                        dep_name = entry.split('"')[1].split("(")[0].strip()
+                        dep_name = entry.split('"')[1].split("(")[0].strip().lower()
 
                         self.solve_depencies(data, name_to_store, dep_name)
 
                 elif(splitted[0].strip() not in skipped_depencies):
-                    dep_name = splitted[0].strip()
+                    dep_name = splitted[0].strip().lower()
 
                     self.solve_depencies(data, name_to_store, dep_name)
 
@@ -165,3 +165,4 @@ class TOML_Parser:
 
     def get_data(self):
         return self.__data
+        
