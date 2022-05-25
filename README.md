@@ -57,7 +57,7 @@ I suggest running the API in a virtual environment
  4. Go back to main folder and start the program
  ```sh
  cd ..
- Python app.py
+ Python wsgi.py
  ```
 
 
