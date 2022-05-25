@@ -66,14 +66,13 @@ I suggest running the API in a virtual environment
  ```sh
  http://localhost:5000/
  ```
- upload a poetry.lock file from your computer and click send
- ```sh
- esim1 picture
- ```
+ Upload a poetry.lock file from your computer and click send
+ 
+ ![esim1](https://user-images.githubusercontent.com/98524196/170256800-41d8e816-9b81-4044-8ff4-f1514d8dd67a.png)
+ 
  After that you have your projects depency tree visualized and navigate it by clicking the links!
- ```sh
- esim2 picture
- ```
+ 
+ ![esim2](https://user-images.githubusercontent.com/98524196/170257238-37e50cc3-4268-4680-8c33-f2bdc64aa3b0.png)
  
 
 ## Contact
