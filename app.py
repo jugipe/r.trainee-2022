@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
-from TOML_Parser import TOML_Parser
+from Parser import TOML_Parser
 import os
 
 app = Flask(__name__)
@@ -13,6 +13,7 @@ def upload_file():
 def after_file_upload():
     if request.method == "POST":
         file = request.files["file"]
+        
         file.save(secure_filename(file.filename))
         
         after_file_upload.parsed_TOML = TOML_Parser(
@@ -20,7 +21,7 @@ def after_file_upload():
 
         os.remove(secure_filename(file.filename))
 
-        if after_file_upload.parsed_TOML.get_data() == None:
+        if after_file_upload.parsed_TOML.get_data() == None or len(after_file_upload.parsed_TOML.get_data()) == 0:
             return render_template("upload.html", error="Please upload a .lock file")
 
         return render_template("index.html", 
