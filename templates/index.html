@@ -12,7 +12,7 @@
             <input type="button" value="Return to parent" onclick="history.back()">
          </form>
          <form>
-            <input type="button" value="Upload another file" onclick="parent.location='http://localhost:5000'">
+            <input type="button" value="Upload another file" onclick="parent.location='/'">
          </form>
       </div>
       <div>
@@ -34,7 +34,7 @@
          };
          const form = document.createElement("form");
          form.method = "POST";
-         form.action = "http://localhost:5000/data";
+         form.action = "/data";
          
          const input = document.createElement("input");
          input.type = "hidden";
