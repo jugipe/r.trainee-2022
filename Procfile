@@ -1,1 +1,1 @@
-web: gunicorn poetpar:app 
+web: gunicorn wsgi: app 
