@@ -1,10 +1,16 @@
+"""
+Reaktor Fall 2022 Software developer trainee
+Preliminary Assignment
+
+This module has some unittests for the parser module
+"""
 import unittest
-import Parser
+import parser
 
 class TestParser(unittest.TestCase):
     
     def test_known_project(self):
-        parsed = Parser.TOML_Parser("testpoetry.lock")
+        parsed = parser.TOML_Parser("testpoetry.lock")
 
         self.assertEqual(dict, type(parsed.get_data()))
 
@@ -14,7 +20,7 @@ class TestParser(unittest.TestCase):
 
 
     def test_empty_project(self):
-        parsed = Parser.TOML_Parser("testempty.lock")
+        parsed = parser.TOML_Parser("testempty.lock")
 
         self.assertEqual(0, len(parsed.get_data()))
 

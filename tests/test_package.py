@@ -1,14 +1,20 @@
+"""
+Reaktor Fall 2022 Software developer trainee
+Preliminary Assignment
+
+This module has some unittests for the package module
+"""
 import unittest
-import Package
+import package
 
 class TestPackage(unittest.TestCase):
-    p = Package("TestPackage")
+    p = package("TestPackage")
     p.set_installed()
 
-    p2 = Package("TestPackage2")
+    p2 = package("TestPackage2")
     p2.set_installed()
 
-    p3 = Package("A_TestPackage")
+    p3 = package("A_TestPackage")
 
     def test_Package_setters_and_getters(self):
 
