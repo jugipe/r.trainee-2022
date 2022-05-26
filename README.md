@@ -49,15 +49,15 @@ I suggest running the API in a virtual environment
  3. Run the tests to check that everything is ok
  ```sh
  cd tests
- Python PackageTest.py
+ Python test_tomlparser.py
  ```
  ```sh
- Python ParserTest.py
+ Python test_package.py
  ```
  4. Go back to main folder and start the program
  ```sh
  cd ..
- Python wsgi.py
+ py wsgi.py
  ```
 
 
