@@ -5,12 +5,12 @@ Preliminary Assignment
 This module has some unittests for the tomlparser module
 """
 import unittest
-import parser
+import tomlparser.tomlparser as parser
 
 class TestParser(unittest.TestCase):
     
     def test_known_project(self):
-        parsed = parser.TOML_Parser("testpoetry.lock")
+        parsed = parser.TomlParser("testpoetry.lock")
 
         self.assertEqual(dict, type(parsed.get_data()))
 
@@ -20,7 +20,7 @@ class TestParser(unittest.TestCase):
 
 
     def test_empty_project(self):
-        parsed = parser.TOML_Parser("testempty.lock")
+        parsed = parser.TomlParser("testempty.lock")
 
         self.assertEqual(0, len(parsed.get_data()))
 
