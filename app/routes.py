@@ -1,24 +1,16 @@
-"""
-Reaktor Fall 2022 Software developer trainee
-Preliminary Assignment
-
-This Python program is a small poetry.lock file parser and visualizer for depencies
-used in a project. It contains a backend written in python using flask microframework
-and has a basic html front using jinja2 to render the webpages.
-"""
-from flask import Flask, request, render_template
+from flask import Blueprint, request, render_template
 from werkzeug.utils import secure_filename
-from tomlparser import TomlParser
+from tomlparser.tomlparser import TomlParser
 import os
 
-app = Flask(__name__)
+routes = Blueprint("routes", __name__)
 
-@app.route("/")
+@routes.route("/")
 def upload_file():
     """Starting page for the user"""
     return render_template("upload.html")
 
-@app.route("/index", methods=["GET", "POST"])
+@routes.route("/index", methods=["GET", "POST"])
 def after_file_upload():
     """Function which contains the program logic after file upload. Uses a parser
     to parse the given poetry.lock file to visualizable form. Redirects the user
@@ -61,7 +53,7 @@ def after_file_upload():
         else:
             return render_template("upload.html")
 
-@app.route("/data", methods=["GET", "POST"])
+@routes.route("/data", methods=["GET", "POST"])
 def depency_clicked():
     """Function which contains the logic to visualize a single depency and its
     depencies and reversedepencies in the project.
@@ -101,4 +93,3 @@ def depency_clicked():
     # Redirect GET requests to the mainpage
     elif request.method == "GET":
         return render_template("upload.html")
-        

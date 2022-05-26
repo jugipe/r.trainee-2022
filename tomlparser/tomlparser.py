@@ -6,7 +6,7 @@ This module defines a parser, which is used to parse user uploaded files
 to visualizable form. Uses the Package.class to demonstrate a single depency.
 """
 from io import TextIOWrapper
-from package import Package
+from tomlparser.package import Package
 
 class TomlParser:
     """Class defines the parser and its methods for parsing the file"""
