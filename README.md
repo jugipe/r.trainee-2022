@@ -65,7 +65,7 @@ I suggest running the program in a virtual environment
  
  ![esim1](https://user-images.githubusercontent.com/98524196/170256800-41d8e816-9b81-4044-8ff4-f1514d8dd67a.png)
  
- After that you have your projects depency tree visualized and navigate it by clicking the links!
+ After that, you have your projects depency tree visualized and can navigate it by clicking the links!
  
  ![esim2](https://user-images.githubusercontent.com/98524196/170257238-37e50cc3-4268-4680-8c33-f2bdc64aa3b0.png)
  
