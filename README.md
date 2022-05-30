@@ -18,7 +18,7 @@ More info for the assignment @ https://www.reaktor.com/assignment-fall-2022-deve
 To get your local copy up and running follow these steps
 
 ### Prerequisites
-I suggest running the API in a virtual environment
+I suggest running the program in a virtual environment
 
 1. Install the virtual environment
   ```sh
@@ -48,15 +48,10 @@ I suggest running the API in a virtual environment
  ```
  3. Run the tests to check that everything is ok
  ```sh
- cd tests
- Python test_tomlparser.py
+ py -m unittest discover
  ```
+ 4. Start the program
  ```sh
- Python test_package.py
- ```
- 4. Go back to main folder and start the program
- ```sh
- cd ..
  py wsgi.py
  ```
 
